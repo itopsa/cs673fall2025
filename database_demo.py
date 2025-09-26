@@ -62,6 +62,9 @@ def main():
         print("Connection successful in main!")
         
         # Step 3: Perform database operations with error handling
+        # The try block protects database operations from crashing the program
+        # If any error occurs (connection issues, SQL errors, etc.), 
+        # the except block will catch it and display a helpful error message
         try:
             # Create a cursor object to execute SQL commands
             # A cursor is like a pointer that allows us to execute queries
@@ -87,10 +90,16 @@ def main():
             # Step 7: Close the cursor to free up resources
             cursor.close()
             
+        # The except block catches any errors that occur in the try block
+        # Exception as e captures the error details for display
+        # This prevents the program from crashing and provides helpful error messages
         except Exception as e:
             # Handle any errors that occur during database operations
             print(f"Error during database operations: {e}")
         
+        # The finally block ALWAYS executes, whether there was an error or not
+        # This is crucial for cleanup operations like closing database connections
+        # It ensures resources are properly released even if something goes wrong
         finally:
             # Step 8: Always close the database connection
             # This ensures we don't leave connections open
