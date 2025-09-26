@@ -101,5 +101,8 @@ def main():
         print("Failed to connect in main.")
 
 
+# This block ensures main() only runs when the script is executed directly
+# It prevents main() from running when the script is imported as a module
+# This is a Python best practice for creating reusable scripts
 if __name__ == "__main__":
     main()
